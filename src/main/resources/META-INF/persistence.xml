@@ -1,0 +1,102 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0"
+	xsi:schemalocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+	
+	<!-- Define persistence unit -->
+	<persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
+		<description>This is a short text describing my default unit.</description>
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		
+		<class>gyk4j.wreck.jpa.Student</class>
+		
+		<!-- Enables auto discovery of persistent classes, -->
+		<!-- otherwise they must be listed using <class> -->
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+		<!-- By default your mappings can be defined in orm.xml file, -->
+		<!-- which is discovered automatically. -->
+		<!--
+		<mapping-file>META-INF/mappings.xml</mapping-file>
+		<jar-file>my-entities.jar</jar-file>
+		
+		<jta-data-source>java:app/jdbc/MyDataSource</jta-data-source>
+		-->
+		
+
+		<properties>
+			<!-- configure logging -->
+            <property name="eclipselink.logging.level" value="INFO"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
+		
+			<!-- JPA 3.x -->
+            <property name="jakarta.persistence.lock.timeout" value="100"/>
+            <property name="jakarta.persistence.query.timeout" value="100"/>
+ 
+            <!-- JPA 2.x -->
+            <!-- property name="jakarta.persistence.lock.timeout" value="100"/>
+            <property name="jakarta.persistence.query.timeout" value="100"/ -->
+            
+            <property name="jakarta.persistence.transactionType" value="RESOURCE_LOCAL" />
+            <!-- JNDI name
+            <property name="jakarta.persistence.jtaDataSource" value="" />
+            <property name="jakarta.persistence.nonJtaDataSource" value="" />
+            -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:hsqldb:file:./db/db;shutdown=true" />
+            <property name="jakarta.persistence.jdbc.user" value="sa" />
+            <property name="jakarta.persistence.jdbc.password" value="" />
+            
+            <!-- JPA 3.x -->
+            <!-- 
+            <property name="jakarta.persistence.validation.group.pre-persist" value="jakarta.validation.groups.MyPersistValidation"/>
+            <property name="jakarta.persistence.validation.group.pre-update" value="jakarta.validation.groups.MyUpdateValidation"/>
+            <property name="jakarta.persistence.validation.group.pre-remove" value="jakarta.validation.groups.MyRemovetValidation"/>
+ 			-->
+ 			
+            <!-- JPA 2.x -->
+            <!--
+            <property name="javax.persistence.validation.group.pre-persist" value="javax.validation.groups.MyPersistValidation"/>
+            <property name="javax.persistence.validation.group.pre-update" value="javax.validation.groups.MyUpdateValidation"/>
+            <property name="javax.persistence.validation.group.pre-remove" value="javax.validation.groups.MyRemovetValidation"/>
+            -->
+            
+            <!-- DON'T USE THIS IN PRODUCTION -->
+            <!-- automatically drop and create required database tables -->
+            
+            <!-- JPA 3.x -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
+            <property name="jakarta.persistence.schema-generation.create-script-source" value="file:./sql/create-db.sql" />
+            <property name="jakarta.persistence.schema-generation.drop-script-source" value="file:./sql/drop-db.sql" />
+            <property name="jakarta.persistence.sql-load-script-source" value="file:./sql/data.sql" />
+ 
+            <!-- JPA 2.x -->
+            <!-- 
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
+            <property name="jakarta.persistence.schema-generation.create-script-source" value="create-db.sql" />
+            <property name="jakarta.persistence.schema-generation.drop-script-source" value="drop-db.sql" />
+            <property name="jakarta.persistence.sql-load-script-source" value="data.sql" />
+            -->
+            
+            <!-- none (default), create, drop-and-create, drop -->
+            <property name="jakarta.persistence.schema-generation.scripts.action" value="drop-and-create" />
+            
+            <!-- metadata, script, metadata-then-script, script-then-metadata -->
+            <property name="jakarta.persistence.schema-generation.create-source" value="metadata-then-script" />
+            
+            <!-- metadata, script, metadata-then-script, script-then-metadata -->
+            <property name="jakarta.persistence.schema-generation.drop-source" value="metadata-then-script" />
+            
+            <!-- The location where you want to store the generated create script. -->
+            <property name="jakarta.persistence.schema-generation.scripts.create-target" value="file:./sql/create-db.sql" />
+            
+            <!-- The location where you want to store the generated drop script. -->
+            <property name="jakarta.persistence.schema-generation.scripts.drop-target" value="file:./sql/drop-db.sql" />
+            
+            <property name="jakarta.persistence.sql-load-script-source" value="file:./sql/data.sql" />
+		</properties>
+		
+		<shared-cache-mode>NONE</shared-cache-mode> <!-- ALL, NONE, ENABLE_SELECTIVE, DISABLE_SELECTIVE -->
+		<validation-mode>AUTO</validation-mode> <!-- AUTO, CALLBACK, NONE -->
+	</persistence-unit>
+</persistence>

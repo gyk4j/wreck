@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<parsers>
+		<!-- Default Parser for most things, never use the TesseractOCRParser Parser -->
+		<parser class="org.apache.tika.parser.DefaultParser">
+			<parser-exclude
+				class="org.apache.tika.parser.ocr.TesseractOCRParser" />
+		</parser>
+		
+		<!-- these are the defaults; you only need to specify the ones you want 
+					to modify -->
+		<!-- Disable the TesseractOCRParser
+		<parser class="org.apache.tika.parser.ocr.TesseractOCRParser">
+			<params>
+				<param name="applyRotation" type="bool">false</param>
+				<param name="colorSpace" type="string">gray</param>
+				<param name="density" type="int">300</param>
+				<param name="depth" type="int">4</param>
+				<param name="enableImagePreprocessing" type="bool">false</param>
+				<param name="filter" type="string">triangle</param>
+				<param name="imageMagickPath" type="string">/my/custom/imageMagicPath
+				</param>
+				<param name="language" type="string">eng</param>
+				<param name="maxFileSizeToOcr" type="long">2147483647</param>
+				<param name="minFileSizeToOcr" type="long">0</param>
+				<param name="pageSegMode" type="string">1</param>
+				<param name="pageSeparator" type="string"></param>
+				<param name="preserveInterwordSpacing" type="bool">false</param>
+				<param name="resize" type="int">200</param>
+				<param name="skipOcr" type="bool">false</param>
+				<param name="tessdataPath" type="string">/my/custom/data</param>
+				<param name="tesseractPath" type="string">/my/custom/path</param>
+				<param name="timeoutSeconds" type="int">120</param>
+			</params>
+		</parser>
+		 -->
+	</parsers>
+</properties>
