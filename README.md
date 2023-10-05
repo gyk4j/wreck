@@ -22,7 +22,7 @@ photos, MP4 videos, MP3 audio) using a few libraries to maximize success in
 metadata extraction, work out the appropriate timestamps, correct them in the
 file system, and finally leaving the files ready for archival and preservation.
 
-![Timestamps Fixed](https://github.com/gyk4j/wreck/blob/main/docs/assets/images/settings-fixed.png)
-![WRECK Running](https://github.com/gyk4j/wreck/blob/main/docs/assets/images/settings-running.png)
+![Timestamps Fixed](../../wiki/assets/images/settings-fixed.png)
+![WRECK Running](../../wiki/assets/images/settings-running.png)
 
 For more information, see the [Wiki](../../wiki/About-WRECK).
