@@ -1,3 +1,5 @@
+[![Java CI with Maven](https://github.com/gyk4j/wreck/actions/workflows/maven.yml/badge.svg)](https://github.com/gyk4j/wreck/actions/workflows/maven.yml)
+
 # About WRECK
 
 WRECK is a Java desktop utility tool to *restore the file system timestamp* 
