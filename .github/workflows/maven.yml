@@ -20,6 +20,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      PROJECT_NAME: ${{ github.event.repository.name }}
+
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 8
